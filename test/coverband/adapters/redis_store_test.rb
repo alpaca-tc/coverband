@@ -87,6 +87,29 @@ unless ENV["COVERBAND_HASH_REDIS_STORE"]
       assert_equal example_line, @store.get_coverage_report[:runtime]["app_path/dog.rb"]["data"]
     end
 
+    # def test_coverage_import
+    #   binding.irb
+    #   mock_file_hash
+    #   @store.save_report(basic_coverage.dup)
+    #
+    #   data = {
+    #     Coverband::EAGER_TYPE => @store.coverage(Coverband::RUNTIME_TYPE),
+    #     Coverband::RUNTIME_TYPE => @store.coverage(Coverband::RUNTIME_TYPE),
+    #   }
+    #
+    #   @store.clear!
+    #
+    #   @store.import(**data)
+    #
+    #   @store.coverage.each_pair do |key, data|
+    #     assert_equal expected[key], data["data"]
+    #   end
+    #   current_time = Time.now.to_i
+    #   @store.save_report(basic_coverage.dup)
+    #   assert_equal [0, 2, 4], @store.coverage["app_path/dog.rb"]["data"]
+    #   assert current_time <= @store.coverage["app_path/dog.rb"]["last_updated_at"]
+    # end
+
     def test_coverage_when_null
       assert_nil @store.coverage["app_path/dog.rb"]
     end

@@ -39,6 +39,10 @@ module Coverband
         raise ABSTRACT_KEY
       end
 
+      def import(_eager_loading_coverage, _runtime_coverage)
+        raise ABSTRACT_KEY
+      end
+
       def size_in_mib
         if size
           format("%<size>.2f", size: (size.to_f / 2**20))

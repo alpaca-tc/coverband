@@ -80,6 +80,11 @@ module Coverband
         data
       end
 
+      def import(eager_loading_coverage, runtime_coverage)
+        save_coverage(eager_loading_coverage, Coverband::EAGER_TYPE)
+        save_coverage(runtime_coverage, Coverband::RUNTIME_TYPE)
+      end
+
       # Note: This could lead to slight race on redis
       # where multiple processes pull the old coverage and add to it then push
       # the Coverband 2 had the same issue,
